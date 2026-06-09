@@ -1,7 +1,7 @@
 <script>
     import '../../../app.css';
     import { onMount } from 'svelte';
-    import { LoaderCircle, CheckCircle2, Clock, ArrowLeft, ArrowRight } from '@lucide/svelte';
+    import { LoaderCircle, CheckCircle2, Clock, ArrowLeft, ArrowRight, Search } from '@lucide/svelte';
 
     const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQMyPNk9QRGU6IWh1l6KirRWv4NfLd_DfLkV3LX60EzFrIGfdRTHtlzclmKJazG16DhqxGuORzPJt9T/pub?gid=0&single=true&output=csv';
 
@@ -11,6 +11,7 @@
     ]);
 
     let filterStatus = $state('semua');
+    let searchQuery = $state('');
     let currentDetailPage = $state(1);
     let isLoading = $state(true);
     const itemsPerPage = 5;
@@ -126,6 +127,14 @@
     let sortedActivities = $derived(
         activities
             .filter(a => filterStatus === 'semua' ? true : a.status === filterStatus)
+            .filter(a => {
+                if (!searchQuery) return true;
+                const lowerQuery = searchQuery.toLowerCase();
+                return (a.judul?.toLowerCase() || '').includes(lowerQuery) || 
+                       (a.kegiatan?.toLowerCase() || '').includes(lowerQuery) ||
+                       (a.pj?.toLowerCase() || '').includes(lowerQuery) ||
+                       (a.keterangan?.toLowerCase() || '').includes(lowerQuery);
+            })
             .sort((a, b) => parseWaktuDate(a.waktu) - parseWaktuDate(b.waktu))
     );
         
@@ -161,10 +170,13 @@
 </style>
 
 <div class="mt-10 w-[calc(100%-20px)] md:w-[calc(100%-24px)] lg:w-[calc(100%-40px)] max-w-[1080px] mx-auto relative min-h-[480px] bg-gradient-to-br from-emerald-600 via-emerald-500 to-emerald-400 shadow-[0_20px_60px_rgba(0,0,0,0.3)] rounded-[14px] lg:rounded-[20px] p-[20px_12px] md:p-[28px_18px] lg:p-[50px_45px]" id="page2">
-    <div class="text-center mb-12 relative">
-        <div class="w-[64px] h-[64px] md:w-[80px] md:h-[80px] lg:w-[110px] lg:h-[110px] bg-white/95 rounded-full mx-auto mb-4 flex items-center justify-center border-[5px] border-white/30 px-2 md:px-3 b-2 transition-all duration-300 hover:scale-110 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:border-white/60 active:scale-95 cursor-pointer" onclick={() => window.location.href='/'} onkeydown={(e) => e.key === 'Enter' && (window.location.href='/')} tabindex="0" role="button">
+    <div class="text-center mb-12 relative flex flex-col justify-center items-center">
+        <div class="w-[64px] h-[64px] md:w-[80px] md:h-[80px] lg:w-[110px] lg:h-[110px] bg-white/95 rounded-full mx-auto mb-4 flex items-center justify-center border-[5px] border-white/30 px-2 md:px-3 b-2 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:border-white/60 active:scale-95 cursor-pointer" onclick={() => window.location.href='/'} onkeydown={(e) => e.key === 'Enter' && (window.location.href='/')} tabindex="0" role="button">
             <img src="https://upload.wikimedia.org/wikipedia/id/thumb/7/70/Logo_GP_Ansor.png/250px-Logo_GP_Ansor.png" alt="Logo GP Ansor" class="w-full h-full object-contain">
         </div>
+        <a href="/" class="text-white font-semibold cursor-pointer transition-opacity hover:opacity-80 flex items-center" aria-label="Kembali ke Beranda">
+            <ArrowLeft class="w-5 h-5 mr-1" /> <span class="hidden md:inline">Home</span>
+        </a>
         <h1 class="text-white text-[20px] md:text-[28px] lg:text-[44px] font-[800] mb-2.5 uppercase tracking-[2px] drop-shadow-[2px_2px_10px_rgba(0,0,0,0.3)]">Detail Program</h1>
         <p class="text-white/90 text-[13px] md:text-[16px] lg:text-[22px] font-light">Rincian Lengkap Kegiatan</p>
     </div>
@@ -175,6 +187,19 @@
                 {status.charAt(0).toUpperCase() + status.slice(1)}
             </button>
         {/each}
+    </div>
+
+    <div class="mb-6 relative">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <Search class="w-5 h-5 text-white/70" />
+        </div>
+        <input 
+            type="text" 
+            bind:value={searchQuery}
+            oninput={() => currentDetailPage = 1}
+            placeholder="Cari program, judul, atau PJ..." 
+            class="w-full bg-white/15 border border-white/30 text-white placeholder-white/70 text-[14px] lg:text-[15px] rounded-[15px] pl-11 pr-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-white/50 focus:bg-white/20 transition-all backdrop-blur-md"
+        />
     </div>
 
     <div class="flex flex-col gap-3.5 lg:gap-5 max-h-[500px] overflow-y-auto" id="detail-list">
