@@ -11,7 +11,7 @@
 
 <nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)]">
     <div class="flex justify-between items-center px-gutter max-w-container-max mx-auto h-20">
-        <a class="flex items-center gap-2" href="/tools" onclick={() => isOpen = false}>
+        <a class="flex items-center gap-2" href="/pdf-tools" onclick={() => isOpen = false}>
             <HelpCircle class="text-primary text-3xl"
                 style="font-variation-settings: 'FILL' 1;" />
             <span class="font-display text-headline-md font-extrabold text-primary">AnsorPDF</span>
@@ -20,9 +20,9 @@
             <a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200 font-body-md text-body-md"
                 href="/">Home</a>
             <a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200 font-body-md text-body-md"
-                href="/tools#tools">Tools</a>
+                href="/pdf-tools#tools">Tools</a>
             <a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200 font-body-md text-body-md"
-                href="/tools#privacy">Privacy</a>
+                href="/pdf-tools#privacy">Privacy</a>
         </div>
         <div class="flex items-center gap-stack-md md:hidden">
             <button onclick={toggleMenu} class="flex items-center justify-center w-10 h-10 text-on-surface">
@@ -43,9 +43,9 @@
             <a onclick={toggleMenu} class="text-on-surface hover:text-primary transition-colors duration-200 font-display text-headline-sm font-semibold border-b border-outline-variant/30 pb-4"
                 href="/">Home</a>
             <a onclick={toggleMenu} class="text-on-surface hover:text-primary transition-colors duration-200 font-display text-headline-sm font-semibold border-b border-outline-variant/30 pb-4"
-                href="/tools#tools">Tools</a>
+                href="/pdf-tools#tools">Tools</a>
             <a onclick={toggleMenu} class="text-on-surface hover:text-primary transition-colors duration-200 font-display text-headline-sm font-semibold border-b border-outline-variant/30 pb-4"
-                href="/tools#privacy">Privacy</a>
+                href="/pdf-tools#privacy">Privacy</a>
         </div>
     </div>
 {/if}

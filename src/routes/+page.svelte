@@ -97,7 +97,7 @@
             <li><a href="#tentang" onclick={() => isMobileMenuOpen = false}>Tentang</a></li>
             <li><a href="#program" onclick={() => isMobileMenuOpen = false}>Program</a></li>
             <li><a href="#visi-misi" onclick={() => isMobileMenuOpen = false}>Visi & Misi</a></li>
-            <li><a href="/tools" onclick={() => isMobileMenuOpen = false}>PDF Tools</a></li>
+            <li><a href="/pdf-tools" onclick={() => isMobileMenuOpen = false}>PDF Tools</a></li>
             <li><a href="#kontak" onclick={() => isMobileMenuOpen = false}>Kontak</a></li>
         </ul>
         <div style="display: flex; align-items: center;">

@@ -10,7 +10,7 @@
     <p class="font-body-lg text-on-surface-variant max-w-lg mb-12">
         We're working hard to bring this feature to you. All our tools are built to run 100% locally in your browser for ultimate privacy.
     </p>
-    <a href="/tools" class="bg-primary hover:bg-primary-container text-on-primary font-headline-md text-[18px] px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2 bento-hover">
+    <a href="/pdf-tools" class="bg-primary hover:bg-primary-container text-on-primary font-headline-md text-[18px] px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2 bento-hover">
         <ArrowLeft class="" />
         Back to Tools
     </a>
