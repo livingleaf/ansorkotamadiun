@@ -91,7 +91,6 @@
             <li><a href="#tentang">Tentang</a></li>
             <li><a href="#program">Program</a></li>
             <li><a href="#visi-misi">Visi & Misi</a></li>
-            <li><a href="/e/proker">Proker</a></li>
             <li><a href="/tools">PDF Tools</a></li>
             <li><a href="#kontak">Kontak</a></li>
         </ul>
