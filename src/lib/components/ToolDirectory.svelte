@@ -3,16 +3,16 @@
     import { Combine, SplitSquareHorizontal, Shrink, FileText, Table, Image, ImagePlus, Lock, PenTool, ScanText, Search, UploadCloud } from '@lucide/svelte';
 
     let tools = [
-        { id: 'merge', title: 'Merge PDF', description: 'Combine multiple PDFs and images into a single document.', icon: Combine, href: '/tools/merge', category: 'Edit', isExists: true },
-        { id: 'split', title: 'Split PDF', description: 'Extract pages from your PDF or save each page as a separate PDF. Select precise page ranges for quick extraction.', icon: SplitSquareHorizontal, href: '/tools/split', category: 'Edit', colSpan: true, isExists: true },
-        { id: 'compress', title: 'Compress PDF', description: 'Reduce file size while maintaining visual quality.', icon: Shrink, href: '/tools/compress', category: 'Edit', isExists: false, tag: 'COMING SOON', tagStyle: 'bg-surface-variant text-on-surface-variant' },
-        { id: 'pdf-to-word', title: 'PDF to Word', description: 'Convert your PDF to an editable Word document.', icon: FileText, href: '/tools/pdf-to-word', category: 'Convert', isExists: false, tag: 'COMING SOON', tagStyle: 'bg-surface-variant text-on-surface-variant' },
-        { id: 'pdf-to-excel', title: 'PDF to Excel', description: 'Extract data straight from PDFs into Excel spreadsheets.', icon: Table, href: '/tools/pdf-to-excel', category: 'Convert', isExists: false, tag: 'COMING SOON', tagStyle: 'bg-surface-variant text-on-surface-variant' },
-        { id: 'pdf-to-jpg', title: 'PDF to JPG', description: 'Extract images from your PDF or convert each page to a JPG.', icon: Image, href: '/tools/pdf-to-jpg', category: 'Convert', isExists: true },
-        { id: 'image-to-pdf', title: 'Image to PDF', description: 'Convert images (JPG, PNG) into a single PDF document.', icon: ImagePlus, href: '/tools/image-to-pdf', category: 'Convert', isExists: true },
-        { id: 'protect', title: 'Protect PDF', description: 'Encrypt your PDF with a password to prevent unauthorized access.', icon: Lock, href: '/tools/protect', category: 'Secure', isExists: true },
-        { id: 'sign', title: 'Sign PDF', description: 'Add your electronic signature to documents effortlessly.', icon: PenTool, href: '/tools/sign', category: 'Secure', isExists: true },
-        { id: 'ocr', title: 'OCR PDF', description: 'Make text within scanned documents searchable and selectable. Powered by local WASM for ultimate privacy.', icon: ScanText, href: '/tools/ocr', category: 'Convert', colSpan: true, isExists: false, tag: 'COMING SOON', tagStyle: 'bg-surface-variant text-on-surface-variant' }
+        { id: 'merge', title: 'Merge PDF', description: 'Combine multiple PDFs and images into a single document.', icon: Combine, href: '/pdf-tools/merge', category: 'Edit', isExists: true },
+        { id: 'split', title: 'Split PDF', description: 'Extract pages from your PDF or save each page as a separate PDF. Select precise page ranges for quick extraction.', icon: SplitSquareHorizontal, href: '/pdf-tools/split', category: 'Edit', colSpan: true, isExists: true },
+        { id: 'compress', title: 'Compress PDF', description: 'Reduce file size while maintaining visual quality.', icon: Shrink, href: '/pdf-tools/compress', category: 'Edit', isExists: false, tag: 'COMING SOON', tagStyle: 'bg-surface-variant text-on-surface-variant' },
+        { id: 'pdf-to-word', title: 'PDF to Word', description: 'Convert your PDF to an editable Word document.', icon: FileText, href: '/pdf-tools/pdf-to-word', category: 'Convert', isExists: false, tag: 'COMING SOON', tagStyle: 'bg-surface-variant text-on-surface-variant' },
+        { id: 'pdf-to-excel', title: 'PDF to Excel', description: 'Extract data straight from PDFs into Excel spreadsheets.', icon: Table, href: '/pdf-tools/pdf-to-excel', category: 'Convert', isExists: false, tag: 'COMING SOON', tagStyle: 'bg-surface-variant text-on-surface-variant' },
+        { id: 'pdf-to-jpg', title: 'PDF to JPG', description: 'Extract images from your PDF or convert each page to a JPG.', icon: Image, href: '/pdf-tools/pdf-to-jpg', category: 'Convert', isExists: true },
+        { id: 'image-to-pdf', title: 'Image to PDF', description: 'Convert images (JPG, PNG) into a single PDF document.', icon: ImagePlus, href: '/pdf-tools/image-to-pdf', category: 'Convert', isExists: true },
+        { id: 'protect', title: 'Protect PDF', description: 'Encrypt your PDF with a password to prevent unauthorized access.', icon: Lock, href: '/pdf-tools/protect', category: 'Secure', isExists: true },
+        { id: 'sign', title: 'Sign PDF', description: 'Add your electronic signature to documents effortlessly.', icon: PenTool, href: '/pdf-tools/sign', category: 'Secure', isExists: true },
+        { id: 'ocr', title: 'OCR PDF', description: 'Make text within scanned documents searchable and selectable. Powered by local WASM for ultimate privacy.', icon: ScanText, href: '/pdf-tools/ocr', category: 'Convert', colSpan: true, isExists: false, tag: 'COMING SOON', tagStyle: 'bg-surface-variant text-on-surface-variant' }
     ];
 
     let searchQuery = $state('');

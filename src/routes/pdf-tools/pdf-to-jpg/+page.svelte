@@ -1,13 +1,18 @@
 <script>
     import { ArrowLeft, FileUp, AlertCircle, FileText, Loader2, X, Download } from '@lucide/svelte';
 
-    import * as pdfjsLib from 'pdfjs-dist';
-    import workerSrc from 'pdfjs-dist/build/pdf.worker.mjs?url';
+    import { onMount } from 'svelte';
+    import { browser } from '$app/environment';
 
-    // Set the workerSrc for PDF.js
-    if (typeof window !== 'undefined') {
-        pdfjsLib.GlobalWorkerOptions.workerSrc = workerSrc;
-    }
+    let pdfjsLib;
+    
+    onMount(async () => {
+        if (browser) {
+            pdfjsLib = await import('pdfjs-dist');
+            const workerSrc = await import('pdfjs-dist/build/pdf.worker.mjs?url');
+            pdfjsLib.GlobalWorkerOptions.workerSrc = workerSrc.default;
+        }
+    });
 
     let file = $state(null);
     let isProcessing = $state(false);
