@@ -108,7 +108,7 @@
 
 <div class="max-w-4xl mx-auto px-gutter py-20">
     <div class="mb-8">
-        <a href="/" class="inline-flex items-center text-primary hover:text-primary-container font-body-md transition-colors mb-4 group">
+        <a href="/tools" class="inline-flex items-center text-primary hover:text-primary-container font-body-md transition-colors mb-4 group">
             <ArrowLeft class="mr-1 group-hover:-translate-x-1 transition-transform" />
             Back to Tools
         </a>
