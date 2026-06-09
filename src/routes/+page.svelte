@@ -1,6 +1,12 @@
 <script>
     import { onMount } from 'svelte';
 
+    let isMobileMenuOpen = $state(false);
+
+    function toggleMobileMenu() {
+        isMobileMenuOpen = !isMobileMenuOpen;
+    }
+
     onMount(() => {
         // ===== THEME TOGGLE =====
         const html = document.documentElement;
@@ -86,17 +92,22 @@
                 <p>Kota Madiun</p>
             </div>
         </div>
-        <ul class="nav-menu">
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#tentang">Tentang</a></li>
-            <li><a href="#program">Program</a></li>
-            <li><a href="#visi-misi">Visi & Misi</a></li>
-            <li><a href="/tools">PDF Tools</a></li>
-            <li><a href="#kontak">Kontak</a></li>
+        <ul class="nav-menu {isMobileMenuOpen ? 'active' : ''}">
+            <li><a href="#home" onclick={() => isMobileMenuOpen = false}>Beranda</a></li>
+            <li><a href="#tentang" onclick={() => isMobileMenuOpen = false}>Tentang</a></li>
+            <li><a href="#program" onclick={() => isMobileMenuOpen = false}>Program</a></li>
+            <li><a href="#visi-misi" onclick={() => isMobileMenuOpen = false}>Visi & Misi</a></li>
+            <li><a href="/tools" onclick={() => isMobileMenuOpen = false}>PDF Tools</a></li>
+            <li><a href="#kontak" onclick={() => isMobileMenuOpen = false}>Kontak</a></li>
         </ul>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
-            <i class="fas fa-moon"></i>
-        </button>
+        <div style="display: flex; align-items: center;">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="mobile-toggle" onclick={toggleMobileMenu} aria-label="Toggle mobile menu">
+                <i class="fas {isMobileMenuOpen ? 'fa-times' : 'fa-bars'}"></i>
+            </button>
+        </div>
     </div>
 </nav>
 
@@ -330,3 +341,53 @@
         <p>&copy; 2025 GP Ansor Kota Madiun. All rights reserved.</p>
     </div>
 </footer>
+
+<style>
+    .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: var(--text-primary);
+        cursor: pointer;
+        margin-left: 20px;
+        padding: 5px;
+        transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+        .mobile-toggle {
+            display: block;
+        }
+        
+        .nav-menu {
+            display: flex !important;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--bg-navbar);
+            flex-direction: column;
+            padding: 0;
+            box-shadow: var(--shadow-navbar);
+            gap: 20px;
+            text-align: center;
+            
+            /* Animation CSS */
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-10px);
+        }
+
+        .nav-menu.active {
+            max-height: 400px;
+            opacity: 1;
+            visibility: visible;
+            padding: 20px 0;
+            transform: translateY(0);
+        }
+    }
+</style>
