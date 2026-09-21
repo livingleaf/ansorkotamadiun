@@ -97,6 +97,7 @@
             <li><a href="#tentang" onclick={() => isMobileMenuOpen = false}>Tentang</a></li>
             <li><a href="#program" onclick={() => isMobileMenuOpen = false}>Program</a></li>
             <li><a href="#visi-misi" onclick={() => isMobileMenuOpen = false}>Visi & Misi</a></li>
+            <li><a href="/diklatsar" onclick={() => isMobileMenuOpen = false} style="color: var(--gold-accent, #B8860B); font-weight: 700;">Diklatsar Banser</a></li>
             <li><a href="/pdf-tools" onclick={() => isMobileMenuOpen = false}>PDF Tools</a></li>
             <li><a href="#kontak" onclick={() => isMobileMenuOpen = false}>Kontak</a></li>
         </ul>
@@ -174,6 +175,11 @@
             <h3>Banser</h3>
             <p>Satuan pengamanan yang siap menjaga keamanan dan ketertiban dalam berbagai kegiatan keagamaan dan
                 masyarakat.</p>
+            <div style="margin-top: 14px;">
+                <a href="/diklatsar" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--green-primary, #0A6B3A); text-decoration: none; padding: 4px 10px; border-radius: 6px; background: var(--green-pale, #d4edda);">
+                    Daftar Diklatsar 2026 &rarr;
+                </a>
+            </div>
         </div>
         <div class="program-card">
             <div class="program-icon"><img src="/assets/image/Rijalul Ansor.png" alt="MDSRA"></div>
@@ -322,6 +328,7 @@
             <a href="#tentang">Tentang Kami</a>
             <a href="#program">Program</a>
             <a href="#visi-misi">Visi & Misi</a>
+            <a href="/diklatsar">Pendaftaran Diklatsar</a>
         </div>
         <div class="footer-section">
             <h3>Bidang-bidang</h3>

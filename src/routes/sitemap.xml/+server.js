@@ -21,9 +21,9 @@ export async function GET() {
 ${filteredRoutes
 	.map(
 		(route) => `	<url>
-		<loc>\${siteUrl}\${route}</loc>
+		<loc>${siteUrl}${route}</loc>
 		<changefreq>weekly</changefreq>
-		<priority>\${route === '/' ? '1.0' : '0.8'}</priority>
+		<priority>${route === '/' ? '1.0' : '0.8'}</priority>
 	</url>`
 	)
 	.join('\n')}
